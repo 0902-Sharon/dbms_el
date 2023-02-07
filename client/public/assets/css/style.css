@@ -445,3 +445,10 @@
 .footer .copyright a:hover {
   color: var(--primary);
 }
+
+.orgcardslist{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-count: 2;
+}
