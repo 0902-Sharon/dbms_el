@@ -1,8 +1,45 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./donationform.css";
-
+import Axios from 'axios';
+import { useNavigate } from "react-router-dom";
 const Donationform = () => {
+  const [donor, setDonor]=useState({
+    d_name:"",
+    contact:"",
+    category:"",
+    quantity:"",
+  });
+  // const [contact, setContact]=useState("")
+  // const [category, setCategory]=useState("")
+  // const [quantity, setQuantity]=useState("")
+
+  const navigate=useNavigate()
+  console.log(donor)
+  const handleChange=(e)=>{
+    setDonor(prev=>({...prev,[e.target.name]:e.target.value}));
+  }
+  const handleClick= async e=>{
+    e.preventDefault();
+    try{
+      await Axios.post("http://localhost:3001/api/insert", donor)
+      navigate("/")
+    }
+    catch(err){
+      console.log(err)
+
+    }
+  }
+  // const submitReview=()=>{
+  //  Axios.post("http://localhost:3001/api/insert", {d_name:d_name, contact:contact, category:category, quantity:quantity }).then(
+  //   ()=>{
+  //     alert("successful");
+  //   }
+  //  );
+  // };
   return (
+   
+
+
     <div className="ngodonationformcard">
       <div className="wrapper">
         <header>
@@ -24,44 +61,25 @@ const Donationform = () => {
               <div className="name">
                 <label for="name">Name: </label>
                 <br />
-                <input type="text" id="name" name="name" className="input" />
+                <input type="text" id="name" name="d_name" className="input" onChange={handleChange}/>
                 <br />
               </div>
 
               <div className="email">
                 <label for="email">Contact Number: </label>
                 <br />
-                <input type="text" id="email" name="email" className="input" />
+                <input type="text" id="email" name="contact" className="input" onChange={handleChange}/>
                 <br />
               </div>
-              <div className="email">
-                <label for="email">Donor Id: </label>
-                <br />
-                <input
-                  type="text"
-                  id="donor id"
-                  name="email"
-                  className="input"
-                />
-                <br />
-              </div>
+              
             </div>
             <div className="checkbox_area">
               <h3>
                 <span className="circle1">2</span>Select Category of Donation
               </h3>
-              <input type="radio" id="age-over" name="age" />
-              <label for="age-under">Clothes</label>
-              <br />
-              <input type="radio" id="age-over" name="age" />
-              <label for="age-over">Stationary and/or Books</label>
-              <br />
-              <input type="radio" id="age-over" name="age" />
-              <label for="age-over">Food</label>
-              <br />
-              <input type="radio" id="age-over" name="age" />
-              <label for="age-over">Supplies</label>
-              <br />
+              <input type="text" id="age-over" name="category" onChange={handleChange}/>
+              <label for="age-under"></label>
+              
             </div>
             <div className="donation quantity">
               <h3 for="name">
@@ -72,9 +90,9 @@ const Donationform = () => {
                 placeholder="i.e 10 clothes| 10 books | 3kg food etc"
                 type="text"
                 id="name"
-                name="donation quantity"
+                name="quantity"
                 className="input inpquantity"
-              />
+                onChange={handleChange}/>
               <br />
             </div>
             {/* <div className="your_profile">
@@ -153,7 +171,8 @@ const Donationform = () => {
                 <br />
               </div>
             </div> */}
-            <div className="pickup_information">
+
+            {/* <div className="pickup_information">
               <h3>
                 <span className="circle1">4</span>Pickup Information
               </h3>
@@ -165,12 +184,18 @@ const Donationform = () => {
                 name="address"
                 className="input2 addressinput"
               />
-            </div>
-            <input
+            </div> */}
+
+            {/* <input
               type="submit"
               value="Make Donation"
               className="sign_up_button"
-            />
+            /> */}
+            
+            <button className="sign_up_button" onClick={handleClick}>
+            Make Donation
+
+            </button>
           </form>
         </main>
       </div>

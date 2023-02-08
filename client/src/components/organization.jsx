@@ -44,7 +44,7 @@ const Organization = () => {
       <div className="ngodonatecardslist">
         <OrgCard
           img="https://i.pinimg.com/564x/77/6d/de/776dde59d7b3325bd85a4353fd535c0c.jpg"
-          category="Clothes"
+          category="clothes"
           ngoname="Clothes With Love"
           donator="XXX"
           quantity="YYY"
