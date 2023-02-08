@@ -78,16 +78,14 @@ export const SignInUp = (props) => {
                 <br />
                 <i>-MotherTeresa</i>
               </p>
-
+              <p>New NGO? Register here!</p>
               <button className="ghost signinbtn" id="signUp">
-                NGO Sign In
+                <a href="#">NGO Registration</a>
               </button>
               <br />
               <button className="ghost signinbtn" id="signUp">
                 Admin Sign In
               </button>
-              <br />
-              <br />
               <br />
               <button
                 className="signinbtn closesignin"

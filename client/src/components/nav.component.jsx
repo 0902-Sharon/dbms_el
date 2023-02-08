@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { SignInUp } from "./signpage";
+import Login from "./LoginWithEandP/Login.jsx";
 import { UserAuth } from "../components/context/authcontext";
 
 const Navcomponent = () => {
@@ -9,6 +10,7 @@ const Navcomponent = () => {
   const home_link = "nav-item nav-link active";
   const d_link = "dropdown-item";
   const [signinpopup, setSigninpopup] = useState(false);
+  const [loginpopup, setloginpopup] = useState(false);
   const { user, logOut } = UserAuth();
   const handleSignOut = async () => {
     try {
@@ -83,6 +85,17 @@ const Navcomponent = () => {
             <Link to="/donate" className={link}>
               Donate
             </Link>
+            <Link
+              to="/"
+              className={link}
+              onClick={
+                user?.displayName
+                  ? handleSignOut
+                  : () => setloginpopup(!loginpopup)
+              }
+            >
+              {user ? `Logout` : `Login`}
+            </Link>
             <Link to="/organization" className={link}>
               Organization
             </Link>
@@ -95,9 +108,7 @@ const Navcomponent = () => {
             <a href="#" className="btn btn-outline-primary py-2 px-3">
               <button
                 className="btn text-light"
-                onClick={
-                  user?.displayName ? handleSignOut : () => setSigninpopup(true)
-                }
+                onClick={user ? handleSignOut : () => setSigninpopup(true)}
               >
                 {user?.displayName ? "Sign Out" : "Sign In"}
               </button>
@@ -109,6 +120,7 @@ const Navcomponent = () => {
         </div>
       </nav>
 
+      <Login didclik={loginpopup} setdidclik={setloginpopup} />
       <SignInUp trigger={signinpopup} setTrigger={setSigninpopup} />
     </div>
   );
