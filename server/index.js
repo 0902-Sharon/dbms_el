@@ -53,7 +53,7 @@ app.get("/api/get", (req, res)=>{
 
 app.post("/api/insert",(req,res)=>{
   const values=[
-    6,1,
+    7,1,
     req.body.d_name,
     req.body.contact,
     req.body.quantity,
