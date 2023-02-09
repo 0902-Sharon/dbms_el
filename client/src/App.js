@@ -3,6 +3,7 @@ import About from "./components/about";
 import Donate from "./components/donation";
 import Service from "./components/services";
 import Organization from "./components/organization";
+import Admin from "./components/admin";
 import Login from "./components/LoginWithEandP/Login.jsx";
 import Register from "./components/LoginWithEandP/register.jsx";
 import Reset from "./components/LoginWithEandP/reset.jsx";
@@ -22,6 +23,7 @@ function App() {
           <Route path="/donate" index element={<Donate />} />
           <Route path="/service" index element={<Service />} />
           <Route path="/organization" index element={<Organization />} />
+          <Route path="/admin" index element={<Admin />} />
           <Route path="/signinup" index element={<SignInUp />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/register" element={<Register />} />
