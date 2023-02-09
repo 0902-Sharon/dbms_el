@@ -12,8 +12,25 @@ import { Routes, Route } from "react-router-dom";
 import { SignInUp } from "./components/signpage.jsx";
 import { AuthContextProvider } from "./components/context/authcontext";
 import "./App.css";
+import alanBtn from '@alan-ai/alan-sdk-web';
 
+import { useEffect, useRef } from 'react';
 function App() {
+  const voicebutton=useRef(null);
+    useEffect(()=>{
+        if(!voicebutton.current){
+            voicebutton.current=alanBtn({
+                key:"74a945eb3c0697fe38675ef16d0af5bd2e956eca572e1d8b807a3e2338fdd0dc/stage",
+                onCommand:(commandData)=>{
+                    if(commandData.command==="openDonateForm"){
+                        window.open("http://localhost:3000/donate", "_blank");
+
+                    }
+
+                },
+            });
+        }
+    }, []);
   return (
     <>
       <AuthContextProvider>
