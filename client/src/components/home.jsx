@@ -29,15 +29,15 @@ const Home = () => {
                         Bring joy to the lives that deserve the most care and
                         love by offering to donate your goods.
                       </p>
-                      <a
+                      <Link
                         className="btn btn-primary py-2 px-3 animated slideInDown"
-                        href="https://www.google.co.in/"
+                        to="/donate"
                       >
                         Where can I donate?
                         <div className="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                           <i className="fa fa-arrow-right"></i>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -56,15 +56,15 @@ const Home = () => {
                         Join as volunteer, any of the thousands of Non-profit
                         oraganizations near you!
                       </p>
-                      <a
+                      <Link
                         className="btn btn-primary py-2 px-3 animated slideInDown"
-                        href="https://www.google.co.in/"
+                        to="/service"
                       >
                         I want to volunteer!
                         <div className="d-inline-flex btn-sm-square bg-white text-primary rounded-circle ms-2">
                           <i className="fa fa-arrow-right"></i>
                         </div>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
