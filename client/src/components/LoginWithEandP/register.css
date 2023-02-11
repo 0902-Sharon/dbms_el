@@ -8,6 +8,14 @@
   width: 100%;
   text-align: center;
   padding-top: 100px;
+}
+
+.registerNGOcontainer {
+  display: flex;
+  flex-direction: column;
+  column-count: 1;
+  justify-content: center;
+  align-items: center;
   color: white;
   overflow: hidden;
   background: #c04848; /* fallback for old browsers */
@@ -21,6 +29,7 @@
 .register__container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
   background-color: #dcdcdc;
   padding: 30px;
@@ -55,7 +64,14 @@
 
 .register p {
   color: #faebd7;
-  font-size: 25px;
+  font-size: 16px;
+}
+
+.register h1,
+h2,
+h3,
+h4 {
+  color: #faebd7;
 }
 
 .register input {
