@@ -11,8 +11,10 @@ import "./register.css";
 import Navcomponent from "../nav.component";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Axios from "axios";
 
 function Register() {
+  const history = useNavigate();
   const [ngo, setNgo] = useState({
     ngo_name: "",
     ngo_contact: "",
@@ -26,6 +28,15 @@ function Register() {
     volunteer_latitude: "",
     volunteer_longitude: "",
   });
+  const handlesubmitClick = async (e) => {
+    e.preventDefault();
+    try {
+      await Axios.post("http://localhost:3001/api/insertngo", ngo);
+      history("/");
+    } catch (err) {
+      console.log(err);
+    }
+  };
   console.log(ngo);
   const handleChange = (e) => {
     setNgo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -35,7 +46,6 @@ function Register() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [user, loading, error] = useAuthState(auth);
-  const history = useNavigate();
   const [selectedDate, setSelectedDate] = useState(null);
 
   const handleSelectedDate = (date) => {
@@ -227,8 +237,11 @@ function Register() {
             selected={selectedDate}
             onChange={handleSelectedDate}
             placeholderText="Select Volunteer Date"
+            dateFormat="dd/MM/yyyy"
           />
-          <button className="regbtn register__btn">Register NGO Details</button>
+          <button className="regbtn register__btn" onClick={handlesubmitClick}>
+            Register NGO Details
+          </button>
         </div>
       </div>
     </div>

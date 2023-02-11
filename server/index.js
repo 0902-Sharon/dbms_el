@@ -6,7 +6,7 @@ const mysql = require("mysql2");
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "Pat24Rv18Ihs@", // put your password here password: "sharon"
+  password: "sharon", // put your password here password: "sharon"
   database: "ngo_website",
 });
 
@@ -43,23 +43,29 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   });
 // });
 
-app.get("/api/get", (req, res)=>{
-  const sqlGet="Select * FROM DONOR";
-  db.query(sqlGet,(err, result)=>{
+app.get("/api/get", (req, res) => {
+  const sqlGet = "Select * FROM DONOR";
+  db.query(sqlGet, (err, result) => {
     res.send(result);
-
   });
 });
 
-app.post("/api/insert",(req,res)=>{
-  const values=[
-    10,1,
+// app.get("/api/getngodetail", (req, res) => {
+//   const sqlGet = "Select * FROM DONOR WHERE CATEGORY = 'Clothes' ";
+//   db.query(sqlGet, (err, result) => {
+//     res.send(result);
+//   });
+// });
+
+app.post("/api/insert", (req, res) => {
+  const values = [
+    10,
+    1,
     req.body.d_name,
     req.body.contact,
     req.body.quantity,
     req.body.category,
     "09 Feb 2023",
-
   ];
   // const donor_id=4;
   // const ngo_id=1;
@@ -71,16 +77,63 @@ app.post("/api/insert",(req,res)=>{
   const sqlInsert =
     "INSERT INTO donor (donor_id, ngo_id, donor_name, donor_contact, quantity_donated, category_donated, donation_date) VALUES (?)";
   db.query(sqlInsert, [values], (err, result) => {
-        if (err) {
-          console.log("there was some error");
-          console.log(err);
-          // return res.json(err);
-        }
-        console.log(result);
-        // result.send("Values Inserted");
-});
+    if (err) {
+      console.log("there was some error");
+      console.log(err);
+      // return res.json(err);
+    }
+    console.log(result);
+    // result.send("Values Inserted");
+  });
 });
 
+app.post("/api/insertngo", (req, res) => {
+  const values_ngo = [
+    req.body.ngo_name,
+    req.body.ngo_contact,
+    req.body.ngo_category,
+    req.body.ngo_vtask,
+    req.body.volunteer_date,
+    req.body.volunteer_location,
+    req.body.volunteer_latitude,
+    req.body.volunteer_longitude,
+  ];
+  const values_ngo_location = [
+    7,
+    req.body.ngo_location,
+    req.body.ngo_latitude,
+    req.body.ngo_longitude,
+  ];
+  // const donor_id=4;
+  // const ngo_id=1;
+  // const date="27 Nov 2020";
+  // const d_name = req.body.d_name;
+  // const contact = req.body.contact;
+  // const quantity = req.body.quantity;
+  // const category = req.body.category;
+  const sqlInsert_ngo =
+    "INSERT INTO ngo (ngo_name, ngo_contact_number, category, volunteer, volunteer_date, volunteer_location, volunteer_latitude, volunteer_longitude) VALUES (?)";
+  const sqlInsert_ngo_location =
+    "INSERT INTO ngo_location (ngo_id, ngo_address, ngo_latitude, ngo_longitude) VALUES (?)";
+  db.query(sqlInsert_ngo, [values_ngo], (err, result) => {
+    if (err) {
+      console.log("there was some error");
+      console.log(err);
+      // return res.json(err);
+    }
+    console.log(result);
+    // result.send("Values Inserted");
+  });
+  db.query(sqlInsert_ngo_location, [values_ngo_location], (err, result) => {
+    if (err) {
+      console.log("there was some error");
+      console.log(err);
+      // return res.json(err);
+    }
+    console.log(result);
+    // result.send("Values Inserted");
+  });
+});
 
 app.listen(3001, () => {
   console.log("running on port 3001");
