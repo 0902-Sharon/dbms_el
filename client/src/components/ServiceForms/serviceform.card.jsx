@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useState, useEffect }  from "react";
 import "./serviceform.css";
-
+import Axios from 'axios';
+import { useNavigate } from "react-router-dom";
 const Serviceform = ({ services }) => {
+  const [service, setService]=useState({
+    s_name:"",
+    contact:"",
+    volunteer_id:"",
+    task:"",
+    hours:"",
+  });
+  const navigate=useNavigate()
+  console.log(service)
+  const handleChange=(e)=>{
+    setService(prev=>({...prev,[e.target.name]:e.target.value}));
+  }
+  const handleClick= async e=>{
+    e.preventDefault();
+    try{
+      await Axios.post("http://localhost:3001/api/insertservice", service)
+      navigate("/")
+    }
+    catch(err){
+      console.log(err)
+
+    }
+  }
   return (
     <div className="ngodonationformcard">
       <div className="wrapper">
@@ -24,34 +48,25 @@ const Serviceform = ({ services }) => {
               <div className="name">
                 <label for="name">Name: </label>
                 <br />
-                <input type="text" id="name" name="name" className="input" />
+                <input type="text" id="name" name="s_name" className="input" onChange={handleChange} />
                 <br />
               </div>
 
               <div className="email">
                 <label for="email">Contact Number: </label>
                 <br />
-                <input type="text" id="email" name="email" className="input" />
+                <input type="text" id="email" name="contact" className="input" onChange={handleChange}/>
                 <br />
               </div>
-              <div className="email">
-                <label for="email">Volunteer Id: </label>
-                <br />
-                <input
-                  type="text"
-                  id="donor id"
-                  name="email"
-                  className="input"
-                />
-                <br />
-              </div>
+              
             </div>
             <div className="checkbox_area">
               <h3>
-                <span className="circle1">2</span>Select Task
+                <span className="circle1">2</span>Choose Task
               </h3>
-              <input type="radio" id="age-over" name="age" />
-              <label for="age-under">{services}</label>
+               
+                <input type="text" id="email" name="task" className="input" onChange={handleChange}/>
+                
               <br />
             </div>
             <div className="donation quantity">
@@ -63,9 +78,9 @@ const Serviceform = ({ services }) => {
                 placeholder="i.e 1 hour| 3 hours/week | 5 hours/week etc"
                 type="text"
                 id="name"
-                name="donation quantity"
+                name="hours"
                 className="input inpquantity"
-              />
+                onChange={handleChange} />
               <br />
             </div>
             {/* <div className="your_profile">
@@ -157,7 +172,7 @@ const Serviceform = ({ services }) => {
                 className="input2 addressinput"
               />
             </div> */}
-            <input type="submit" value="Sign Up" className="sign_up_button" />
+            <input type="submit" value="Sign Up" className="sign_up_button"  onClick={handleClick}/>
           </form>
         </main>
       </div>

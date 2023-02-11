@@ -6,7 +6,7 @@ const mysql = require("mysql2");
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "sharon", // put your password here password: "sharon"
+  password: "Pat24Rv18Ihs@", // put your password here password: "sharon"
   database: "ngo_website",
 });
 
@@ -76,6 +76,37 @@ app.post("/api/insert", (req, res) => {
   // const category = req.body.category;
   const sqlInsert =
     "INSERT INTO donor (donor_id, ngo_id, donor_name, donor_contact, quantity_donated, category_donated, donation_date) VALUES (?)";
+  db.query(sqlInsert, [values], (err, result) => {
+    if (err) {
+      console.log("there was some error");
+      console.log(err);
+      // return res.json(err);
+    }
+    console.log(result);
+    // result.send("Values Inserted");
+  });
+});
+
+app.post("/api/insertservice", (req, res) => {
+  const values = [
+    1,
+    req.body.s_name,
+    req.body.contact,
+    req.body.task,
+    1,
+    "2023-01-01",
+    req.body.hours,
+    
+  ];
+  // const donor_id=4;
+  // const ngo_id=1;
+  // const date="27 Nov 2020";
+  // const d_name = req.body.d_name;
+  // const contact = req.body.contact;
+  // const quantity = req.body.quantity;
+  // const category = req.body.category;
+  const sqlInsert =
+    "INSERT INTO volunteer (volunteer_id, volunteer_name, volunteer_contact_no, task, ngo_id, volunteer_date, volunteer_hours) VALUES (?)";
   db.query(sqlInsert, [values], (err, result) => {
     if (err) {
       console.log("there was some error");
