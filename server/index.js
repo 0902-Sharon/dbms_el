@@ -6,7 +6,7 @@ const mysql = require("mysql2");
 const db = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "Pat24Rv18Ihs@", // put your password here password: "sharon"
+  password: "sharon", // put your password here password: "sharon"
   database: "ngo_website",
 });
 
@@ -96,7 +96,6 @@ app.post("/api/insertservice", (req, res) => {
     1,
     "2023-01-01",
     req.body.hours,
-    
   ];
   // const donor_id=4;
   // const ngo_id=1;
