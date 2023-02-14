@@ -123,8 +123,7 @@ const Home = () => {
                   </div>
                   <h5 className="mb-3">Education For African Children</h5>
                   <p>
-                    Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                    amet diam et eos
+                    All children deserve to learn and grow.
                   </p>
                   <div className="causes-progress bg-light p-3 pt-2">
                     <div className="d-flex justify-content-between">
@@ -179,8 +178,7 @@ const Home = () => {
                   </div>
                   <h5 className="mb-3">Ensure Pure Drinking Water</h5>
                   <p>
-                    Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                    amet diam et eos
+                    Every human being is entitled to clean drinking water.
                   </p>
                   <div className="causes-progress bg-light p-3 pt-2">
                     <div className="d-flex justify-content-between">
@@ -235,8 +233,7 @@ const Home = () => {
                   </div>
                   <h5 className="mb-3">Ensure Medical Treatment</h5>
                   <p>
-                    Tempor erat elitr rebum at clita dolor diam ipsum sit diam
-                    amet diam et eos
+                    Help people in need
                   </p>
                   <div className="causes-progress bg-light p-3 pt-2">
                     <div className="d-flex justify-content-between">
@@ -298,9 +295,7 @@ const Home = () => {
                 Thanks For The Results Achieved With You
               </h1>
               <p className="text-white-50 mb-0">
-                Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
-                Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
-                sed stet lorem sit clita duo justo magna dolore erat amet
+                
               </p>
             </div>
             <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
@@ -392,8 +387,7 @@ const Home = () => {
                 NGO<span className="text-white">Connect</span>
               </h1>
               <p>
-                Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
-                erat ipsum et lorem et sit, sed stet lorem sit clita
+                
               </p>
               <div className="d-flex pt-2">
                 <a
@@ -449,7 +443,7 @@ const Home = () => {
             </div>
             <div className="col-lg-3 col-md-6">
               <h5 className="text-light mb-4">Newsletter</h5>
-              <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+              <p></p>
               <div
                 className="position-relative mx-auto"
                 style={{ maxWidth: "400px" }}
@@ -473,11 +467,10 @@ const Home = () => {
           <div className="container">
             <div className="row">
               <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                <a href="https://www.google.co.in/">Your Site Name</a>, All
-                Right Reserved.
+                
               </div>
               <div className="col-md-6 text-center text-md-end">
-                <a href="https://htmlcodex.com">HTML Codex</a>
+                <a href="https://htmlcodex.com"></a>
               </div>
             </div>
           </div>

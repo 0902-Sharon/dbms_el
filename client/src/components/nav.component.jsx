@@ -103,6 +103,9 @@ const Navcomponent = () => {
             <Link to="/admin" className={link}>
               Admin
             </Link>
+            <Link to="/v_predict" className={link}>
+              Predictions
+            </Link>
           </div>
           <div className="d-none d-lg-flex ms-2">
             <a href="#" className="btn btn-outline-primary py-2 px-3">

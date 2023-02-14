@@ -10,6 +10,7 @@ import Reset from "./components/LoginWithEandP/reset.jsx";
 import Dashboard from "./components/LoginWithEandP/dashboard.jsx";
 import { Routes, Route } from "react-router-dom";
 import { SignInUp } from "./components/signpage.jsx";
+import Volunteer_Predict  from "./components/volunteer_predict";
 import { AuthContextProvider } from "./components/context/authcontext";
 import "./App.css";
 import alanBtn from '@alan-ai/alan-sdk-web';
@@ -26,6 +27,14 @@ function App() {
                         window.open("http://localhost:3000/donate", "_blank");
 
                     }
+                    else if (commandData.command==="openVolunteerForm"){
+                      window.open("http://localhost:3000/service", "_blank");
+
+                  }
+                  else if (commandData.command==="openAboutpage"){
+                    window.open("http://localhost:3000/about", "_blank");
+
+                }
 
                 },
             });
@@ -46,6 +55,7 @@ function App() {
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/reset" element={<Reset />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
+          <Route exact path="/v_predict" element={<Volunteer_Predict />} />
         </Routes>
       </AuthContextProvider>
     </>

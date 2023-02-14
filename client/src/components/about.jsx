@@ -71,15 +71,12 @@ const About = () => {
                 </h1>
                 <div className="bg-light border-bottom border-5 border-primary rounded p-4 mb-4">
                   <p className="text-dark mb-2">
-                    Aliqu diam amet diam et eos. Clita erat ipsum et lorem sed
-                    stet lorem sit clita duo justo erat amet
+                    NGO Connect is a centralised application aimed at connecting NGOs, volunteers and donors from around the world, and ensuring a smooth and hassle free process for volunteering and donating goods.
                   </p>
-                  <span className="text-primary">Jhon Doe, Founder</span>
+                  <span className="text-primary">Akanksha & Sharon, Co-Founders</span>
                 </div>
                 <p className="mb-5">
-                  Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit.
-                  Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit,
-                  sed stet lorem sit clita duo justo magna dolore erat amet
+                 We will be grateful to you if you choose to help us!
                 </p>
                 <a
                   className="btn btn-primary py-2 px-3 me-3"
@@ -126,14 +123,13 @@ const About = () => {
             >
               <div className="service-item bg-white text-center h-100 p-4 p-xl-5">
                 <img
-                  className="assets/img-fluid mb-4"
-                  src="img/icon-1.png"
+                  className="img-fluid mb-4"
+                  src="assets/img/icon-1.png"
                   alt=""
                 />
                 <h4 className="mb-3">Child Education</h4>
                 <p className="mb-4">
-                  Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum
-                  diam justo sed vero dolor duo.
+                  Help children from around the world get a good education.
                 </p>
                 <a
                   className="btn btn-outline-primary px-3"
@@ -158,8 +154,7 @@ const About = () => {
                 />
                 <h4 className="mb-3">Medical Treatment</h4>
                 <p className="mb-4">
-                  Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum
-                  diam justo sed vero dolor duo.
+                  Donate money to buy medicinal supplies for hospitals in rural areas.
                 </p>
                 <a
                   className="btn btn-outline-primary px-3"
@@ -184,8 +179,7 @@ const About = () => {
                 />
                 <h4 className="mb-3">Pure Drinking Water</h4>
                 <p className="mb-4">
-                  Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum
-                  diam justo sed vero dolor duo.
+                  Help us ensure clean drinking water for all.
                 </p>
                 <a
                   className="btn btn-outline-primary px-3"
@@ -217,50 +211,8 @@ const About = () => {
             </h1>
           </div>
           <div className="row g-4">
-            <div
-              className="col-lg-3 col-md-6 wow fadeInUp"
-              data-wow-delay="0.1s"
-            >
-              <div className="team-item position-relative rounded overflow-hidden">
-                <div className="overflow-hidden">
-                  <img
-                    className="assets/img-fluid"
-                    src="img/team-1.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="team-text bg-light text-center p-4">
-                  <h5>Full Name</h5>
-                  <p className="text-primary">Designation</p>
-                  <div className="team-social text-center">
-                    <a
-                      classNameName="text-white-50 ms-3"
-                      href="https://www.facebook.com/"
-                    >
-                      <i classNameName="fab fa-facebook-f"></i>
-                    </a>
-                    <a
-                      classNameName="text-white-50 ms-3"
-                      href="https://twitter.com/"
-                    >
-                      <i classNameName="fab fa-twitter"></i>
-                    </a>
-                    <a
-                      classNameName="text-white-50 ms-3"
-                      href="https://in.linkedin.com/"
-                    >
-                      <i classNameName="fab fa-linkedin-in"></i>
-                    </a>
-                    <a
-                      classNameName="text-white-50 ms-3"
-                      href="https://www.instagram.com/"
-                    >
-                      <i classNameName="fab fa-instagram"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
+              
             <div
               className="col-lg-3 col-md-6 wow fadeInUp"
               data-wow-delay="0.3s"
@@ -274,8 +226,8 @@ const About = () => {
                   />
                 </div>
                 <div className="team-text bg-light text-center p-4">
-                  <h5>Full Name</h5>
-                  <p className="text-primary">Designation</p>
+                  <h5>Akanksha A Pai</h5>
+                  <p className="text-primary">Co - Founder</p>
                   <div className="team-social text-center">
                     <a
                       classNameName="text-white-50 ms-3"
@@ -318,8 +270,8 @@ const About = () => {
                   />
                 </div>
                 <div className="team-text bg-light text-center p-4">
-                  <h5>Full Name</h5>
-                  <p className="text-primary">Designation</p>
+                  <h5>Sharon Thomas</h5>
+                  <p className="text-primary">Co - Founder</p>
                   <div className="team-social text-center">
                     <a
                       classNameName="text-white-50 ms-3"
@@ -349,50 +301,7 @@ const About = () => {
                 </div>
               </div>
             </div>
-            <div
-              className="col-lg-3 col-md-6 wow fadeInUp"
-              data-wow-delay="0.7s"
-            >
-              <div className="team-item position-relative rounded overflow-hidden">
-                <div className="overflow-hidden">
-                  <img
-                    className="img-fluid"
-                    src="assets/img/team-4.jpg"
-                    alt=""
-                  />
-                </div>
-                <div className="team-text bg-light text-center p-4">
-                  <h5>Full Name</h5>
-                  <p className="text-primary">Designation</p>
-                  <div className="team-social text-center">
-                    <a
-                      classNameName="text-white-50 ms-3"
-                      href="https://www.facebook.com/"
-                    >
-                      <i classNameName="fab fa-facebook-f"></i>
-                    </a>
-                    <a
-                      classNameName="text-white-50 ms-3"
-                      href="https://twitter.com/"
-                    >
-                      <i classNameName="fab fa-twitter"></i>
-                    </a>
-                    <a
-                      classNameName="text-white-50 ms-3"
-                      href="https://in.linkedin.com/"
-                    >
-                      <i classNameName="fab fa-linkedin-in"></i>
-                    </a>
-                    <a
-                      classNameName="text-white-50 ms-3"
-                      href="https://www.instagram.com/"
-                    >
-                      <i classNameName="fab fa-instagram"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -405,11 +314,10 @@ const About = () => {
           <div className="row g-5">
             <div className="col-lg-3 col-md-6">
               <h1 className="fw-bold text-primary mb-4">
-                Chari<span className="text-white">Team</span>
+                NGO<span className="text-white">Connect</span>
               </h1>
               <p>
-                Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita
-                erat ipsum et lorem et sit, sed stet lorem sit clita
+                
               </p>
               <div className="d-flex pt-2">
                 <a
@@ -465,7 +373,7 @@ const About = () => {
             </div>
             <div className="col-lg-3 col-md-6">
               <h5 className="text-light mb-4">Newsletter</h5>
-              <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+              <p></p>
               <div
                 className="position-relative mx-auto"
                 style={{ maxWidth: "400px" }}
@@ -489,11 +397,10 @@ const About = () => {
           <div className="container">
             <div className="row">
               <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                <a href="https://www.google.co.in/">Your Site Name</a>, All
-                Right Reserved.
+                
               </div>
               <div className="col-md-6 text-center text-md-end">
-                <a href="https://htmlcodex.com">HTML Codex</a>
+                <a href="https://htmlcodex.com"></a>
               </div>
             </div>
           </div>
