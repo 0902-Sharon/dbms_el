@@ -3,7 +3,7 @@
 /* Card layout */
 
 body {
-  background: linear-gradient(to right, #4cb8c4, #3cd3ad);
+  background: linear-gradient(to right, #deeff1, #ddebe8);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
 }

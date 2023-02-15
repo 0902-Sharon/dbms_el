@@ -18,15 +18,15 @@ function Register() {
   const [ngo, setNgo] = useState({
     ngo_name: "",
     ngo_contact: "",
-    ngo_category: "",
+    ngo_category: "NULL",
     ngo_location: "",
     ngo_latitude: "",
     ngo_longitude: "",
-    ngo_vtask: "",
-    volunteer_date: "",
-    volunteer_location: "",
-    volunteer_latitude: "",
-    volunteer_longitude: "",
+    ngo_vtask: "NULL",
+    volunteer_date: "NULL",
+    volunteer_location: "NULL",
+    volunteer_latitude: "NULL",
+    volunteer_longitude: "NULL",
   });
   const handlesubmitClick = async (e) => {
     e.preventDefault();

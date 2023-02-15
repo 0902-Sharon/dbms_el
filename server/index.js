@@ -134,8 +134,10 @@ app.post("/api/insertservice", (req, res) => {
   });
 });
 
+var ngoid = 4;
 app.post("/api/insertngo", (req, res) => {
   const values_ngo = [
+    ngoid,
     req.body.ngo_name,
     req.body.ngo_contact,
     req.body.ngo_category,
@@ -146,7 +148,7 @@ app.post("/api/insertngo", (req, res) => {
     req.body.volunteer_longitude,
   ];
   const values_ngo_location = [
-    7,
+    ngoid,
     req.body.ngo_location,
     req.body.ngo_latitude,
     req.body.ngo_longitude,
@@ -159,7 +161,7 @@ app.post("/api/insertngo", (req, res) => {
   // const quantity = req.body.quantity;
   // const category = req.body.category;
   const sqlInsert_ngo =
-    "INSERT INTO ngo (ngo_name, ngo_contact_number, category, volunteer, volunteer_date, volunteer_location, volunteer_latitude, volunteer_longitude) VALUES (?)";
+    "INSERT INTO ngo (ngo_id, ngo_name, ngo_contact_number, category, volunteer, volunteer_date, volunteer_location, volunteer_latitude, volunteer_longitude) VALUES (?)";
   const sqlInsert_ngo_location =
     "INSERT INTO ngo_location (ngo_id, ngo_address, ngo_latitude, ngo_longitude) VALUES (?)";
   db.query(sqlInsert_ngo, [values_ngo], (err, result) => {
@@ -170,16 +172,18 @@ app.post("/api/insertngo", (req, res) => {
     }
     console.log(result);
     // result.send("Values Inserted");
-  });
-  db.query(sqlInsert_ngo_location, [values_ngo_location], (err, result) => {
-    if (err) {
-      console.log("there was some error");
-      console.log(err);
-      // return res.json(err);
-    }
-    console.log(result);
-    // result.send("Values Inserted");
-  });
+  }).then(
+    db.query(sqlInsert_ngo_location, [values_ngo_location], (err, result) => {
+      if (err) {
+        console.log("there was some error");
+        console.log(err);
+        // return res.json(err);
+      }
+      ngoid++;
+      console.log(result);
+      // result.send("Values Inserted");
+    })
+  );
 });
 
 app.listen(3001, () => {
