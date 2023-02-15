@@ -129,6 +129,15 @@ import { useState } from "react";
 import "./volunteer_pred.css";
 
 function Volunteer_Predict() {
+  var ngoname_arr = {
+    1: "Clothes for All",
+    2: "Teach All",
+    3: "CleanUpBangalore",
+    4: "MoneyForNeedy",
+    5: "Ad We",
+    6: "Snacks-Food",
+    7: "Collect-Them",
+  };
   const [formData, setFormData] = useState({
     skill1: "",
     skill2: "",
@@ -295,9 +304,11 @@ function Volunteer_Predict() {
       </form>
       {predictedNgo && (
         <p>
-          You have been matched with NGO {predictedNgo}! Contact them at{" "}
-          {generateRandomNumber(1000000000, 9999999999)} to learn more about
-          volunteering opportunities.
+          {`You have been matched with NGO ${
+            ngoname_arr[parseInt(predictedNgo)]
+          }! Contact
+          them at ${generateRandomNumber(1000000000, 9999999999)} to learn more
+          about volunteering opportunities.`}
         </p>
       )}
     </div>
