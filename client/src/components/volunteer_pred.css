@@ -34,6 +34,11 @@ body {
   }
 } */
 
+.formbox {
+  display: flex;
+  align-items: center;
+}
+
 .volunteer-predict {
   background-color: #ffffffc4;
   border-radius: 10px;
@@ -74,7 +79,7 @@ h4 {
 
 .volunteer-predict input {
   border: none;
-  border-radius: 10px;
+  border-radius: 4%;
   padding: 1rem;
   font-size: 1rem;
   font-family: inherit;
@@ -82,6 +87,10 @@ h4 {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
   margin-left: 1rem;
+  width: 100%;
+  height: 38px;
+  border: 1px solid rgb(240, 240, 240);
+  color: #000;
 }
 
 /* Keyframe animations for inputs and buttons */
@@ -148,4 +157,12 @@ h4 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     transform: translateY(0);
   }
+}
+
+.formbox input {
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
 }

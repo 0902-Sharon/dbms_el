@@ -49,20 +49,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //     res.send(result);
 //   });
 // });
-app.get(`/api/getclothes`, (req, res) => {
-  const sqlGet = "Select * FROM DONOR WHERE category_donated LIKE '%clothes%' ";
+app.get(`/api/getClothes`, (req, res) => {
+  const sqlGet = "Select * FROM donor WHERE category_donated LIKE '%Clothes%' ";
   db.query(sqlGet, (err, result) => {
     res.send(result);
   });
 });
 app.get(`/api/getBooks`, (req, res) => {
-  const sqlGet1 = "Select * FROM DONOR WHERE category_donated LIKE '%Books%' ";
+  const sqlGet1 = "Select * FROM donor WHERE category_donated LIKE '%Books%' ";
   db.query(sqlGet1, (err, result) => {
     res.send(result);
   });
 });
 app.get(`/api/getFood`, (req, res) => {
-  const sqlGet3 = "Select * FROM DONOR WHERE category_donated LIKE '%Food%' ";
+  const sqlGet3 = "Select * FROM donor WHERE category_donated LIKE '%Food%' ";
   db.query(sqlGet3, (err, result) => {
     res.send(result);
   });
@@ -73,16 +73,16 @@ app.get(`/api/getFood`, (req, res) => {
 //     res.send(result);
 //   });
 // });
-
+var donorid = 1;
 app.post("/api/insert", (req, res) => {
   const values = [
-    10,
-    1,
+    donorid,
+    req.body.ngo_key,
     req.body.d_name,
     req.body.contact,
     req.body.quantity,
     req.body.category,
-    "09 Feb 2023",
+    req.body.d_date,
   ];
   // const donor_id=4;
   // const ngo_id=1;
@@ -100,6 +100,7 @@ app.post("/api/insert", (req, res) => {
       // return res.json(err);
     }
     console.log(result);
+    donorid++;
     // result.send("Values Inserted");
   });
 });

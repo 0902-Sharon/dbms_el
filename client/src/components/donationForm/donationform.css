@@ -3,6 +3,7 @@
 .ngodonationformcard {
   height: 100vh;
   width: 100vw;
+  color: #222;
 }
 
 .wrapper {
@@ -32,6 +33,14 @@
   align-items: center;
   font-family: "Font Awesome 5 Free";
 }
+
+h1,
+h2,
+h3,
+h4 {
+  color: #000;
+}
+
 h1 {
   text-align: center;
   padding: 0;
@@ -50,6 +59,8 @@ h2 div {
   margin-right: 5px;
 }
 
+.checkbox_area input:focus,
+.donation input:focus,
 .basic-info input:focus,
 .inpquantity input:focus,
 .biography textarea:focus,
@@ -57,12 +68,21 @@ h2 div {
   outline: 2px solid rgb(50, 174, 54);
 }
 
-.input {
+.checkbox_area input {
+  width: 100%;
+  height: 30px;
+  background-color: rgb(240, 240, 240);
+  border: 1px solid rgb(240, 240, 240);
+  border-radius: 4%;
+}
+
+.ngodonationformcard input {
   width: 100%;
   height: 38px;
   background-color: rgb(240, 240, 240);
   border: 1px solid rgb(240, 240, 240);
   border-radius: 4%;
+  color: #000;
 }
 .input2 {
   width: 320px;
@@ -78,6 +98,7 @@ h2 div {
   border: 1px solid rgb(240, 240, 240);
   border-radius: 4%;
 }
+
 .name,
 .inpquantity,
 .email,
@@ -87,7 +108,18 @@ h2 div {
 .interests {
   padding: 10px 0;
   width: 100%;
+  color: #000;
 }
+.name p,
+.inpquantity p,
+.email p,
+.password p,
+.biography p,
+.jobrole p,
+.interests p {
+  color: #000;
+}
+
 .circle1,
 .circle2 {
   width: 25px;

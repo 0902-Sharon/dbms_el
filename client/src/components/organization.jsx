@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Navcomponent from "./nav.component";
 import OrgCard from "./organisationcards/orgcard";
 
-
 const Organization = () => {
   const link = "btn btn-link";
   const d_link = "dropdown-item";
@@ -43,13 +42,15 @@ const Organization = () => {
       </div>
       <div className="ngodonatecardslist">
         <OrgCard
+          cat_donation="Clothes"
           img="https://i.pinimg.com/564x/77/6d/de/776dde59d7b3325bd85a4353fd535c0c.jpg"
-          category="clothes"
+          category="Clothes"
           ngoname="Clothes With Love"
           donator="XXX"
           quantity="YYY"
         ></OrgCard>
         <OrgCard
+          cat_donation="Books"
           img="https://images.unsplash.com/photo-1533254012848-644c18f39289?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
           category="Books and Stationary"
           ngoname="Books With Love"
@@ -57,6 +58,7 @@ const Organization = () => {
           quantity="YYY"
         ></OrgCard>
         <OrgCard
+          cat_donation="Food"
           img="https://i.pinimg.com/564x/85/7a/9d/857a9da135269b3c5d8c22e5051ed48a.jpg"
           category="Food"
           ngoname="Food With Love"
@@ -64,6 +66,7 @@ const Organization = () => {
           quantity="YYY"
         ></OrgCard>
         <OrgCard
+          cat_donation="Supplies"
           img="https://i.pinimg.com/564x/5f/81/c5/5f81c59fe8dc41ee88b666b2f0e2dfbc.jpg"
           category="Supplies"
           ngoname="Emergency Relief"

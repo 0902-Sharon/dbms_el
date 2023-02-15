@@ -44,6 +44,7 @@ const Donate = () => {
       </div>
       <div className="ngodonatecardslist">
         <NgoDonatecard
+          ngokey="1"
           img="https://i.pinimg.com/564x/77/6d/de/776dde59d7b3325bd85a4353fd535c0c.jpg"
           needs="Clothes"
           title="Clothes With Love"
@@ -52,6 +53,7 @@ const Donate = () => {
           addr="123, Wall Street, USA"
         ></NgoDonatecard>
         <NgoDonatecard
+          ngokey="2"
           img="https://images.unsplash.com/photo-1533254012848-644c18f39289?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
           needs="Books and Stationary"
           title="Books With Love"
@@ -60,6 +62,7 @@ const Donate = () => {
           addr="123, Wall Street, USA"
         ></NgoDonatecard>
         <NgoDonatecard
+          ngokey="3"
           img="https://i.pinimg.com/564x/85/7a/9d/857a9da135269b3c5d8c22e5051ed48a.jpg"
           needs="Food"
           title="Food With Love"
@@ -68,6 +71,7 @@ const Donate = () => {
           addr="123, Wall Street, USA"
         ></NgoDonatecard>
         <NgoDonatecard
+          ngokey="4"
           img="https://i.pinimg.com/564x/5f/81/c5/5f81c59fe8dc41ee88b666b2f0e2dfbc.jpg"
           needs="Supplies"
           title="Emergency Relief"
@@ -89,9 +93,7 @@ const Donate = () => {
               <h1 className="display-6 mb-5">
                 Thanks For The Results Achieved With You
               </h1>
-              <p className="mb-0">
-                
-              </p>
+              <p className="mb-0"></p>
             </div>
             <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
               <div className="h-100 bg-secondary p-5">
@@ -182,9 +184,7 @@ const Donate = () => {
               <h1 className="fw-bold text-primary mb-4">
                 NGO<span className="text-white">Connect</span>
               </h1>
-              <p>
-               
-              </p>
+              <p></p>
               <div className="d-flex pt-2">
                 <a
                   className="btn btn-square me-1"
@@ -262,9 +262,7 @@ const Donate = () => {
         <div className="container-fluid copyright">
           <div className="container">
             <div className="row">
-              <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                
-              </div>
+              <div className="col-md-6 text-center text-md-start mb-3 mb-md-0"></div>
               <div className="col-md-6 text-center text-md-end">
                 <a href="https://htmlcodex.com"></a>
               </div>

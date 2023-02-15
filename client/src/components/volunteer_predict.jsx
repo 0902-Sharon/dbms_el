@@ -221,7 +221,7 @@ function Volunteer_Predict() {
         </div>
         <div>
           <h2>Choose your interests:</h2>
-          <div>
+          <div className="formbox">
             <input
               type="checkbox"
               name="skill3"
@@ -231,7 +231,7 @@ function Volunteer_Predict() {
             />
             <label>Teaching</label>
           </div>
-          <div>
+          <div className="formbox">
             <input
               type="checkbox"
               name="skill4"
@@ -241,7 +241,7 @@ function Volunteer_Predict() {
             />
             <label>Cleaning</label>
           </div>
-          <div>
+          <div className="formbox">
             <input
               type="checkbox"
               name="skill5"
@@ -251,7 +251,7 @@ function Volunteer_Predict() {
             />
             <label>Fundraising</label>
           </div>
-          <div>
+          <div className="formbox">
             <input
               type="checkbox"
               name="skill6"
@@ -261,7 +261,7 @@ function Volunteer_Predict() {
             />
             <label>Marketing</label>
           </div>
-          <div>
+          <div className="formbox">
             <input
               type="checkbox"
               name="skill7"
@@ -271,7 +271,7 @@ function Volunteer_Predict() {
             />
             <label>Cooking</label>
           </div>
-          <div>
+          <div className="formbox">
             <input
               type="checkbox"
               name="skill8"

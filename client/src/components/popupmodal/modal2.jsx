@@ -3,7 +3,7 @@ import Donationform from "../donationForm/donationform";
 import MapCardNgoComponent from "../mapcardcomponent/mapcard";
 import "./modal.css";
 
-const Modal2 = ({ title, addr }) => {
+const Modal2 = ({ ngokey, title, addr }) => {
   const [showForm, setShowForm] = useState(false);
 
   const handleClick = () => {
@@ -21,7 +21,7 @@ const Modal2 = ({ title, addr }) => {
       </button>
       {showForm && (
         <div className="donationformdiv">
-          <Donationform />
+          <Donationform ngokey={ngokey} />
         </div>
       )}
       {!showForm && (

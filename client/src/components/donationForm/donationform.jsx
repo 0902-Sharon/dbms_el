@@ -1,34 +1,34 @@
 import React, { useState, useEffect } from "react";
 import "./donationform.css";
-import Axios from 'axios';
+import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-const Donationform = () => {
-  const [donor, setDonor]=useState({
-    d_name:"",
-    contact:"",
-    category:"",
-    quantity:"",
+const Donationform = ({ ngokey }) => {
+  const [donor, setDonor] = useState({
+    ngo_key: ngokey,
+    d_name: "",
+    contact: "",
+    category: "",
+    quantity: "",
+    d_date: "",
   });
   // const [contact, setContact]=useState("")
   // const [category, setCategory]=useState("")
   // const [quantity, setQuantity]=useState("")
 
-  const navigate=useNavigate()
-  console.log(donor)
-  const handleChange=(e)=>{
-    setDonor(prev=>({...prev,[e.target.name]:e.target.value}));
-  }
-  const handleClick= async e=>{
+  const navigate = useNavigate();
+  console.log(donor);
+  const handleChange = (e) => {
+    setDonor((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  const handleClick = async (e) => {
     e.preventDefault();
-    try{
-      await Axios.post("http://localhost:3001/api/insert", donor)
-      navigate("/")
+    try {
+      await Axios.post("http://localhost:3001/api/insert", donor);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
     }
-    catch(err){
-      console.log(err)
-
-    }
-  }
+  };
   // const submitReview=()=>{
   //  Axios.post("http://localhost:3001/api/insert", {d_name:d_name, contact:contact, category:category, quantity:quantity }).then(
   //   ()=>{
@@ -37,9 +37,6 @@ const Donationform = () => {
   //  );
   // };
   return (
-   
-
-
     <div className="ngodonationformcard">
       <div className="wrapper">
         <header>
@@ -61,38 +58,71 @@ const Donationform = () => {
               <div className="name">
                 <label for="name">Name: </label>
                 <br />
-                <input type="text" id="name" name="d_name" className="input" onChange={handleChange}/>
+                <input
+                  type="text"
+                  id="name"
+                  name="d_name"
+                  className="input"
+                  onChange={handleChange}
+                />
                 <br />
               </div>
 
               <div className="email">
                 <label for="email">Contact Number: </label>
                 <br />
-                <input type="text" id="email" name="contact" className="input" onChange={handleChange}/>
+                <input
+                  type="text"
+                  id="email"
+                  name="contact"
+                  className="input"
+                  onChange={handleChange}
+                />
                 <br />
               </div>
-              
             </div>
             <div className="checkbox_area">
               <h3>
-                <span className="circle1">2</span>Select Category of Donation
+                <span className="circle1">2</span>
+                <p>Select Category of Donation</p>
               </h3>
-              <input type="text" id="age-over" name="category" onChange={handleChange}/>
+              <input
+                className="input3"
+                type="text"
+                id="age-over"
+                name="category"
+                onChange={handleChange}
+              />
               <label for="age-under"></label>
-              
             </div>
             <div className="donation quantity">
               <h3 for="name">
-                <span className="circle1">3</span>Quantity of Donation:{" "}
+                <span className="circle1">3</span>
+                <p>Quantity of Donation: </p>
               </h3>
-              <br />
               <input
                 placeholder="i.e 10 clothes| 10 books | 3kg food etc"
                 type="text"
                 id="name"
                 name="quantity"
                 className="input inpquantity"
-                onChange={handleChange}/>
+                onChange={handleChange}
+              />
+              <br />
+            </div>
+            <div className="donation date">
+              <h3 for="name">
+                <span className="circle1">4</span>
+                <p>Date of Donation: </p>
+              </h3>
+              <input
+                placeholder="Year - Month - Date"
+                type="text"
+                id="name"
+                name="d_date"
+                className="input inpquantity"
+                onChange={handleChange}
+              />
               <br />
             </div>
             {/* <div className="your_profile">
@@ -191,10 +221,9 @@ const Donationform = () => {
               value="Make Donation"
               className="sign_up_button"
             /> */}
-            
-            <button className="sign_up_button" onClick={handleClick}>
-            Make Donation
 
+            <button className="sign_up_button" onClick={handleClick}>
+              Make Donation
             </button>
           </form>
         </main>
