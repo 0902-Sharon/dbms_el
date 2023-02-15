@@ -44,6 +44,7 @@ const Service = () => {
       </div>
       <div className="ngodonatecardslist">
         <Ngovolunteercard
+          ngokey="1"
           img="https://i.pinimg.com/564x/6d/95/67/6d95671ac4aa1d51c14947128479d72c.jpg"
           needs="Teaching Volunteers"
           title="Education With Love"
@@ -55,6 +56,7 @@ const Service = () => {
           hours="3 Hours"
         ></Ngovolunteercard>
         <Ngovolunteercard
+          ngokey="2"
           img="https://i.pinimg.com/564x/e8/ee/b4/e8eeb4c0545ea4cf1df914704de6b24f.jpg"
           needs="Plantation Drive"
           title="Plants With Love"
@@ -66,6 +68,7 @@ const Service = () => {
           hours="3 Hours"
         ></Ngovolunteercard>
         <Ngovolunteercard
+          ngokey="3"
           img="https://i.pinimg.com/564x/33/d8/38/33d838563b34f7d585057c3c8885c47e.jpg"
           needs="Clean Up Drive"
           title="Clean UP!"
@@ -77,6 +80,7 @@ const Service = () => {
           hours="3 Hours"
         ></Ngovolunteercard>
         <Ngovolunteercard
+          ngokey="4"
           img="https://i.pinimg.com/564x/01/f0/b6/01f0b6e796bf588fd2d374da8c98e72b.jpg"
           needs="Distribution/Delivery Volunteers"
           title="Emergency Relief"
@@ -98,9 +102,7 @@ const Service = () => {
               <h1 className="display-6 mb-5">
                 Thanks For The Results Achieved With You
               </h1>
-              <p className="mb-0">
-                
-              </p>
+              <p className="mb-0"></p>
             </div>
             <div className="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
               <div className="h-100 bg-secondary p-5">
@@ -189,11 +191,9 @@ const Service = () => {
           <div className="row g-5">
             <div className="col-lg-3 col-md-6">
               <h1 className="fw-bold text-primary mb-4">
-               NGO<span className="text-white">Connect</span>
+                NGO<span className="text-white">Connect</span>
               </h1>
-              <p>
-                
-              </p>
+              <p></p>
               <div className="d-flex pt-2">
                 <a
                   className="btn btn-square me-1"
@@ -271,9 +271,7 @@ const Service = () => {
         <div className="container-fluid copyright">
           <div className="container">
             <div className="row">
-              <div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                
-              </div>
+              <div className="col-md-6 text-center text-md-start mb-3 mb-md-0"></div>
               <div className="col-md-6 text-center text-md-end">
                 <a href="https://htmlcodex.com"></a>
               </div>

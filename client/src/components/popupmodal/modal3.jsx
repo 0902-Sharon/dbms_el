@@ -4,7 +4,7 @@ import Serviceform from "../ServiceForms/serviceform.card";
 import MapCardNgoComponent from "../mapcardcomponent/mapcard";
 import "./modal.css";
 
-const Modal3 = ({ servv, title, addr }) => {
+const Modal3 = ({ ngokey, servv, title, addr }) => {
   const [showForm, setShowForm] = useState(false);
 
   const handleClick = () => {
@@ -22,7 +22,7 @@ const Modal3 = ({ servv, title, addr }) => {
       </button>
       {showForm && (
         <div className="donationformdiv">
-          <Serviceform services={servv} />
+          <Serviceform ngokey={ngokey} services={servv} />
         </div>
       )}
       {!showForm && (

@@ -4,6 +4,7 @@ import MapCardNgoComponent from "../mapcardcomponent/mapcard";
 import Modal3 from "../popupmodal/modal3";
 
 const Ngovolunteercard = ({
+  ngokey,
   img,
   author,
   title,
@@ -15,7 +16,7 @@ const Ngovolunteercard = ({
   hours,
 }) => {
   return (
-    <div className="card">
+    <div className="card" id={ngokey}>
       <img className="ngocardimage" src={img} />
       <div className="card-body">
         <div className="writtencontent">
@@ -29,7 +30,12 @@ const Ngovolunteercard = ({
           <h4>Volunteer Hours: </h4>
           <p>{hours}</p>
           <div className="Map"></div>
-          <Modal3 title={title} addr={addr} servv={whatservice} />
+          <Modal3
+            ngokey={ngokey}
+            title={title}
+            addr={addr}
+            servv={whatservice}
+          />
           <h5>{author}</h5>
         </div>
       </div>

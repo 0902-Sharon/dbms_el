@@ -1,36 +1,36 @@
-import React, { useState, useEffect }  from "react";
+import React, { useState, useEffect } from "react";
 import "./serviceform.css";
-import Axios from 'axios';
+import Axios from "axios";
 import { useNavigate } from "react-router-dom";
-const Serviceform = ({ services }) => {
-  const [service, setService]=useState({
-    s_name:"",
-    contact:"",
-    volunteer_id:"",
-    task:"",
-    hours:"",
+const Serviceform = ({ ngokey, services }) => {
+  const [service, setService] = useState({
+    ngo_key: { ngokey },
+    s_name: "",
+    contact: "",
+    volunteer_id: "",
+    task: "",
+    hours: "",
+    v_date: "",
   });
-  const navigate=useNavigate()
-  console.log(service)
-  const handleChange=(e)=>{
-    setService(prev=>({...prev,[e.target.name]:e.target.value}));
-  }
-  const handleClick= async e=>{
+  const navigate = useNavigate();
+  console.log(service);
+  const handleChange = (e) => {
+    setService((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+  const handleClick = async (e) => {
     e.preventDefault();
-    try{
-      await Axios.post("http://localhost:3001/api/insertservice", service)
-      navigate("/")
+    try {
+      await Axios.post("http://localhost:3001/api/insertservice", service);
+      navigate("/");
+    } catch (err) {
+      console.log(err);
     }
-    catch(err){
-      console.log(err)
-
-    }
-  }
+  };
   return (
-    <div className="ngodonationformcard">
+    <div className="ngoserviceformcard">
       <div className="wrapper">
         <header>
-          <h1>Volunteer Sign Up</h1>
+          <h1 style={{ color: "black" }}>Volunteer Sign Up</h1>
           <br />
         </header>
         <main>
@@ -42,35 +42,56 @@ const Serviceform = ({ services }) => {
             id="form-intro"
           >
             <div className="basic-info">
-              <h2>
+              <h2 style={{ color: "black" }}>
                 <span className="circle1">1</span>Your basic info
               </h2>
-              <div className="name">
-                <label for="name">Name: </label>
+              <div className="name" style={{ color: "black" }}>
+                <label for="name" style={{ color: "black" }}>
+                  Name:{" "}
+                </label>
                 <br />
-                <input type="text" id="name" name="s_name" className="input" onChange={handleChange} />
+                <input
+                  type="text"
+                  id="name"
+                  name="s_name"
+                  className="input"
+                  onChange={handleChange}
+                />
                 <br />
               </div>
 
-              <div className="email">
-                <label for="email">Contact Number: </label>
+              <div className="email" style={{ color: "black" }}>
+                <label for="email" style={{ color: "black" }}>
+                  Contact Number:{" "}
+                </label>
                 <br />
-                <input type="text" id="email" name="contact" className="input" onChange={handleChange}/>
+                <input
+                  type="text"
+                  id="email"
+                  name="contact"
+                  className="input"
+                  onChange={handleChange}
+                />
                 <br />
               </div>
-              
             </div>
-            <div className="checkbox_area">
-              <h3>
+            <div className="checkbox_area" style={{ color: "black" }}>
+              <h3 style={{ color: "black" }}>
                 <span className="circle1">2</span>Choose Task
               </h3>
-               
-                <input type="text" id="email" name="task" className="input" onChange={handleChange}/>
-                
+
+              <input
+                type="text"
+                id="email"
+                name="task"
+                className="input"
+                onChange={handleChange}
+              />
+
               <br />
             </div>
-            <div className="donation quantity">
-              <h3 for="name">
+            <div className="donation quantity" style={{ color: "black" }}>
+              <h3 for="name" style={{ color: "black" }}>
                 <span className="circle1">3</span>Hours of Service:{" "}
               </h3>
               <br />
@@ -80,7 +101,23 @@ const Serviceform = ({ services }) => {
                 id="name"
                 name="hours"
                 className="input inpquantity"
-                onChange={handleChange} />
+                onChange={handleChange}
+              />
+              <br />
+            </div>
+            <div className="donation quantity" style={{ color: "black" }}>
+              <h3 for="name" style={{ color: "black" }}>
+                <span className="circle1">4</span>Volunteer Date{" "}
+              </h3>
+              <br />
+              <input
+                placeholder="Year-Month-Day"
+                type="text"
+                id="name"
+                name="v_date"
+                className="input inpquantity"
+                onChange={handleChange}
+              />
               <br />
             </div>
             {/* <div className="your_profile">
@@ -172,7 +209,12 @@ const Serviceform = ({ services }) => {
                 className="input2 addressinput"
               />
             </div> */}
-            <input type="submit" value="Sign Up" className="sign_up_button"  onClick={handleClick}/>
+            <input
+              type="submit"
+              value="Sign Up"
+              className="sign_up_button"
+              onClick={handleClick}
+            />
           </form>
         </main>
       </div>

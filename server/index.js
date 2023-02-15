@@ -105,14 +105,15 @@ app.post("/api/insert", (req, res) => {
   });
 });
 
+var vol_id = 1;
 app.post("/api/insertservice", (req, res) => {
   const values = [
-    1,
+    vol_id,
     req.body.s_name,
     req.body.contact,
     req.body.task,
-    1,
-    "2023-01-01",
+    req.body.ngokey,
+    req.body.v_date,
     req.body.hours,
   ];
   // const donor_id=4;
@@ -130,6 +131,7 @@ app.post("/api/insertservice", (req, res) => {
       console.log(err);
       // return res.json(err);
     }
+    vol_id++;
     console.log(result);
     // result.send("Values Inserted");
   });
