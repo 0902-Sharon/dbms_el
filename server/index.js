@@ -67,13 +67,45 @@ app.get(`/api/getFood`, (req, res) => {
     res.send(result);
   });
 });
+
+app.get(`/api/getSupplies`, (req, res) => {
+  const sqlGet7 =
+    "Select * FROM donor WHERE category_donated LIKE '%Supplies%' ";
+  db.query(sqlGet7, (err, result) => {
+    res.send(result);
+  });
+});
 // app.get("/api/getngodetail", (req, res) => {
 //   const sqlGet = "Select * FROM DONOR WHERE CATEGORY = 'Clothes' ";
 //   db.query(sqlGet, (err, result) => {
 //     res.send(result);
 //   });
 // });
-var donorid = 1;
+
+app.get(`/api/getngodonationdetails`, (req, res) => {
+  const sqlGet6 = "Select * FROM ngodisplay";
+  db.query(sqlGet6, (err, result) => {
+    res.send(result);
+    if (err) {
+      console.log(err);
+    }
+  });
+});
+
+app.get(`/api/getngodetails`, (req, res) => {
+  const sqlGet6 = "Select * FROM servdisplay";
+  db.query(sqlGet6, (err, result) => {
+    res.send(result);
+    if (err) {
+      console.log(err);
+    }
+  });
+});
+
+var donorid = 7;
+var update_donor = (donv) => {
+  donorid = donv;
+};
 app.post("/api/insert", (req, res) => {
   const values = [
     donorid,
@@ -94,18 +126,22 @@ app.post("/api/insert", (req, res) => {
   const sqlInsert =
     "INSERT INTO donor (donor_id, ngo_id, donor_name, donor_contact, quantity_donated, category_donated, donation_date) VALUES (?)";
   db.query(sqlInsert, [values], (err, result) => {
+    update_donor(donorid + 1);
     if (err) {
       console.log("there was some error");
       console.log(err);
       // return res.json(err);
     }
     console.log(result);
-    donorid++;
+
     // result.send("Values Inserted");
   });
 });
 
 var vol_id = 1;
+var update_volid = (vonv) => {
+  vol_id = vonv;
+};
 app.post("/api/insertservice", (req, res) => {
   const values = [
     vol_id,
@@ -126,18 +162,22 @@ app.post("/api/insertservice", (req, res) => {
   const sqlInsert =
     "INSERT INTO volunteer (volunteer_id, volunteer_name, volunteer_contact_no, task, ngo_id, volunteer_date, volunteer_hours) VALUES (?)";
   db.query(sqlInsert, [values], (err, result) => {
+    update_volid(vol_id + 1);
     if (err) {
       console.log("there was some error");
       console.log(err);
       // return res.json(err);
     }
-    vol_id++;
+    // vol_id++;
     console.log(result);
     // result.send("Values Inserted");
   });
 });
 
 var ngoid = 4;
+var update_ngo = (nonv) => {
+  ngoid = nonv;
+};
 app.post("/api/insertngo", (req, res) => {
   const values_ngo = [
     ngoid,
@@ -182,7 +222,7 @@ app.post("/api/insertngo", (req, res) => {
         console.log(err);
         // return res.json(err);
       }
-      ngoid++;
+      update_ngo(ngoid + 1);
       console.log(result);
       // result.send("Values Inserted");
     })

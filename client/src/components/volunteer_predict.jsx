@@ -126,28 +126,33 @@
 
 // export default Volunteer_Predict;
 import { useState } from "react";
+import Navcomponent from "./nav.component";
 import "./volunteer_pred.css";
 
 function Volunteer_Predict() {
   var ngoname_arr = {
-    1: "Clothes for All",
-    2: "Teach All",
-    3: "CleanUpBangalore",
-    4: "MoneyForNeedy",
-    5: "Ad We",
-    6: "Snacks-Food",
-    7: "Collect-Them",
+    1: "Emergency Relief",
+    2: "TeachForGood",
+    3: "CleanIndia",
+    4: "Adopt-A-Street Campaign",
+    5: "Ad Welfare",
+    6: "LetsGiveBack",
+    7: "HEALTHforAll",
+    8: "EducationForAll",
+    9: "Soup Kitchen",
+    10: "FeedTheHungry",
+    11: "SafeWithUs-Every Child Matters",
   };
   const [formData, setFormData] = useState({
-    skill1: "",
-    skill2: "",
+    // skill1: "",
+    // skill2: "",
     skill3: 0,
     skill4: 0,
     skill5: 0,
     skill6: 0,
     skill7: 0,
     skill8: 0,
-    skill9: 1,
+    skill9: 0,
   });
   const [predictedNgo, setPredictedNgo] = useState(null);
 
@@ -170,13 +175,9 @@ function Volunteer_Predict() {
   // };
   const handleFormChange = (e) => {
     console.log(formData);
-    if (
-      e.target.name === "skill1" ||
-      e.target.name === "skill2" ||
-      e.target.name === "skill9"
-    ) {
+    if (e.target.name === "skill1" || e.target.name === "skill2") {
       const randomNumber = generateRandomNumber(1, 9);
-      setFormData({ ...formData, [e.target.name]: randomNumber });
+      // setFormData({ ...formData, [e.target.name]: randomNumber });
     } else {
       const checkedValue = e.target.checked ? 1 : 0;
       // const skills = [...formData[e.target.name]];
@@ -199,6 +200,7 @@ function Volunteer_Predict() {
       body: JSON.stringify(formData),
     });
     const data = await response.json();
+    console.log(data);
     setPredictedNgo(data.predicted_ngo);
   };
 
@@ -207,91 +209,103 @@ function Volunteer_Predict() {
   };
 
   return (
-    <div className="volunteer-predict">
-      <h1>Volunteer NGO Predictor!</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
-          <input
-            type="text"
-            name="skill1"
-            // value={formData.skill1}
-            onChange={handleFormChange}
-          />
-        </div>
-        <div>
-          <label>Location:</label>
-          <input
-            type="text"
-            name="skill2"
-            // value={formData.skill2}
-            onChange={handleFormChange}
-          />
-        </div>
-        <div>
-          <h2>Choose your interests:</h2>
-          <div className="formbox">
+    <div className="volcontainer">
+      <Navcomponent />
+      <div className="volunteer-predict">
+        <h1>Volunteer NGO Predictor!</h1>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label>Name:</label>
             <input
-              type="checkbox"
-              name="skill3"
-              value="1"
+              type="text"
+              name="skill1"
+              // value={formData.skill1}
               onChange={handleFormChange}
-              // checked={formData.skill3.includes("1")}
             />
-            <label>Teaching</label>
           </div>
-          <div className="formbox">
+          <div>
+            <label>Location:</label>
             <input
-              type="checkbox"
-              name="skill4"
-              value="2"
+              type="text"
+              name="skill2"
+              // value={formData.skill2}
               onChange={handleFormChange}
-              // checked={formData.skill4.includes("1")}
             />
-            <label>Cleaning</label>
           </div>
-          <div className="formbox">
-            <input
-              type="checkbox"
-              name="skill5"
-              value="3"
-              onChange={handleFormChange}
-              // checked={formData.skill5.includes("1")}
-            />
-            <label>Fundraising</label>
+          <div>
+            <h2>Choose your interests:</h2>
+            <div className="formbox">
+              <input
+                type="checkbox"
+                name="skill3"
+                value="1"
+                onChange={handleFormChange}
+                // checked={formData.skill3.includes("1")}
+              />
+              <label>Teaching</label>
+            </div>
+            <div className="formbox">
+              <input
+                type="checkbox"
+                name="skill4"
+                value="2"
+                onChange={handleFormChange}
+                // checked={formData.skill4.includes("1")}
+              />
+              <label>Cleaning</label>
+            </div>
+            <div className="formbox">
+              <input
+                type="checkbox"
+                name="skill5"
+                value="3"
+                onChange={handleFormChange}
+                // checked={formData.skill5.includes("1")}
+              />
+              <label>Fundraising</label>
+            </div>
+            <div className="formbox">
+              <input
+                type="checkbox"
+                name="skill6"
+                value="4"
+                onChange={handleFormChange}
+                // checked={formData.skill6.includes("1")}
+              />
+              <label>Marketing</label>
+            </div>
+            <div className="formbox">
+              <input
+                type="checkbox"
+                name="skill7"
+                value="5"
+                onChange={handleFormChange}
+                // checked={formData.skill7.includes("1")}
+              />
+              <label>Cooking</label>
+            </div>
+            <div className="formbox">
+              <input
+                type="checkbox"
+                name="skill8"
+                value="6"
+                onChange={handleFormChange}
+                // checked={formData.skill8.includes("1")}
+              />
+              <label>Collection</label>
+            </div>
+            <div className="formbox">
+              <input
+                type="checkbox"
+                name="skill9"
+                value="6"
+                onChange={handleFormChange}
+                // checked={formData.skill8.includes("1")}
+              />
+              <label>Distribution</label>
+            </div>
           </div>
-          <div className="formbox">
-            <input
-              type="checkbox"
-              name="skill6"
-              value="4"
-              onChange={handleFormChange}
-              // checked={formData.skill6.includes("1")}
-            />
-            <label>Marketing</label>
-          </div>
-          <div className="formbox">
-            <input
-              type="checkbox"
-              name="skill7"
-              value="5"
-              onChange={handleFormChange}
-              // checked={formData.skill7.includes("1")}
-            />
-            <label>Cooking</label>
-          </div>
-          <div className="formbox">
-            <input
-              type="checkbox"
-              name="skill8"
-              value="6"
-              onChange={handleFormChange}
-              // checked={formData.skill8.includes("1")}
-            />
-            <label>Collection and Distribution</label>
-          </div>
-        </div>
-        {/* <div>
+          {/* <div>
           <label>Skill 9:</label>
           <input
             type="text"
@@ -300,17 +314,26 @@ function Volunteer_Predict() {
             onChange={handleFormChange}
           />
         </div> */}
-        <button type="submit">Predict NGO</button>
-      </form>
-      {predictedNgo && (
-        <p>
-          {`You have been matched with NGO ${
-            ngoname_arr[parseInt(predictedNgo)]
-          }! Contact
+          <button type="submit">Predict NGO</button>
+        </form>
+        {predictedNgo && (
+          <p>
+            {`You have been matched ${
+              predictedNgo > Math.floor(predictedNgo) + 0.5
+                ? Math.floor(predictedNgo) + 1
+                : Math.floor(predictedNgo)
+            } with NGO ${
+              ngoname_arr[
+                predictedNgo > Math.floor(predictedNgo) + 0.5
+                  ? Math.floor(predictedNgo) + 1
+                  : Math.floor(predictedNgo)
+              ]
+            }! Contact
           them at ${generateRandomNumber(1000000000, 9999999999)} to learn more
           about volunteering opportunities.`}
-        </p>
-      )}
+          </p>
+        )}
+      </div>
     </div>
   );
 }

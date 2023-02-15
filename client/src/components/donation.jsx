@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navcomponent from "./nav.component";
 import NgoDonatecard from "./ngocards/ngo.cards.donate";
@@ -9,6 +9,22 @@ const Donate = () => {
   const link = "btn btn-link";
   const d_link = "dropdown-item";
   const position = [51.505, -0.09];
+  const [cardDetails, setCardDetails] = useState([]);
+  useEffect(() => {
+    const fetchCardDetails = async () => {
+      try {
+        const response = await fetch(
+          "http://localhost:3001/api/getngodonationdetails"
+        );
+        const data = await response.json();
+        setCardDetails(data);
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchCardDetails();
+  }, []);
   return (
     <div>
       <Navcomponent />
@@ -43,7 +59,18 @@ const Donate = () => {
         </div>
       </div>
       <div className="ngodonatecardslist">
-        <NgoDonatecard
+        {cardDetails.map((card) => (
+          <NgoDonatecard
+            img={card.img}
+            needs={card.needs}
+            title={card.title}
+            author={card.author}
+            reqdesc={card.description}
+            addr={card.address}
+            ngokey={card.ngo_id}
+          />
+        ))}
+        {/* <NgoDonatecard
           ngokey="1"
           img="https://i.pinimg.com/564x/77/6d/de/776dde59d7b3325bd85a4353fd535c0c.jpg"
           needs="Clothes"
@@ -78,7 +105,7 @@ const Donate = () => {
           reqdesc="supplying food and other essentials to the needy"
           author="Daniel Jones"
           addr="123, Wall Street, USA"
-        ></NgoDonatecard>
+        ></NgoDonatecard> */}
       </div>
       {/* <div classname="donation form">
         <Modal />

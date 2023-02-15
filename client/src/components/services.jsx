@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navcomponent from "./nav.component";
 import Ngovolunteercard from "./ngocards/ngovolunteercard";
@@ -9,6 +9,20 @@ const Service = () => {
   const link = "btn btn-link";
   const d_link = "dropdown-item";
   const position = [12.202, 17.799];
+  const [cardNgoDetails, setNgoCardDetails] = useState([]);
+  useEffect(() => {
+    const fetchCardDetails = async () => {
+      try {
+        const response = await fetch("http://localhost:3001/api/getngodetails");
+        const data = await response.json();
+        setNgoCardDetails(data);
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchCardDetails();
+  }, []);
   return (
     <div>
       <Navcomponent />
@@ -43,7 +57,21 @@ const Service = () => {
         </div>
       </div>
       <div className="ngodonatecardslist">
-        <Ngovolunteercard
+        {cardNgoDetails.map((card) => (
+          <Ngovolunteercard
+            ngokey={card.ngo_key}
+            img={card.img}
+            needs={card.needs}
+            title={card.title}
+            author={card.author}
+            reqdesc={card.description}
+            whatservice={card.service}
+            addr={card.address}
+            dates={card.dates}
+            hours={card.hours}
+          />
+        ))}
+        {/* <Ngovolunteercard
           ngokey="1"
           img="https://i.pinimg.com/564x/6d/95/67/6d95671ac4aa1d51c14947128479d72c.jpg"
           needs="Teaching Volunteers"
@@ -90,7 +118,7 @@ const Service = () => {
           whatservice="Delivery"
           dates="23 June 2023"
           hours="3 Hours"
-        ></Ngovolunteercard>
+        ></Ngovolunteercard> */}
       </div>
       <div className="container-fluid py-5">
         <div className="container">
