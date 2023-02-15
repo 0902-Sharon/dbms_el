@@ -43,13 +43,30 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   });
 // });
 
-app.get("/api/get", (req, res) => {
-  const sqlGet = "Select * FROM DONOR";
+// app.get("/api/get", (req, res) => {
+//   const sqlGet = "Select * FROM DONOR";
+//   db.query(sqlGet, (err, result) => {
+//     res.send(result);
+//   });
+// });
+app.get(`/api/getclothes`, (req, res) => {
+  const sqlGet = "Select * FROM DONOR WHERE category_donated LIKE '%clothes%' ";
   db.query(sqlGet, (err, result) => {
     res.send(result);
   });
 });
-
+app.get(`/api/getBooks`, (req, res) => {
+  const sqlGet1 = "Select * FROM DONOR WHERE category_donated LIKE '%Books%' ";
+  db.query(sqlGet1, (err, result) => {
+    res.send(result);
+  });
+});
+app.get(`/api/getFood`, (req, res) => {
+  const sqlGet3 = "Select * FROM DONOR WHERE category_donated LIKE '%Food%' ";
+  db.query(sqlGet3, (err, result) => {
+    res.send(result);
+  });
+});
 // app.get("/api/getngodetail", (req, res) => {
 //   const sqlGet = "Select * FROM DONOR WHERE CATEGORY = 'Clothes' ";
 //   db.query(sqlGet, (err, result) => {
