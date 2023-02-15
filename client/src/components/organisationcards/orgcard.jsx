@@ -37,12 +37,18 @@ const OrgCard = ({
       <img className="ngocardimage" src={img} alt="" />
       <div className="card-body">
         <div className="writtencontent">
-          <h3 className="ngocardh2" name={cat_donation}>
+          <h3
+            className="ngocardh2"
+            name={cat_donation}
+            style={{ color: "black" }}
+          >
             {ngoname}
           </h3>
-          <h6 className="ngocardh3">Category: {category}</h6>
+          <h6 className="ngocardh3" style={{ color: "black" }}>
+            Category: {category}
+          </h6>
 
-          <h6>The donators for the NGO are: </h6>
+          <h6 style={{ color: "black" }}>The donators for the NGO are: </h6>
 
           {/* <TableRow
           >

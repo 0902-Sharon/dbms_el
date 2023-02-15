@@ -103,13 +103,11 @@ const Serviceform = ({ ngokey, services }) => {
                 className="input inpquantity"
                 onChange={handleChange}
               />
-              <br />
             </div>
             <div className="donation quantity" style={{ color: "black" }}>
               <h3 for="name" style={{ color: "black" }}>
                 <span className="circle1">4</span>Volunteer Date{" "}
               </h3>
-              <br />
               <input
                 placeholder="Year-Month-Day"
                 type="text"
